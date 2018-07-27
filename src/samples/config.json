@@ -1,0 +1,177 @@
+{
+  "sampleRouteMapping": {
+    "1": "simple-column-chart",
+    "2": "3d-pie-chart",
+    "3": "column-area-line-combi-chart",
+    "4": "fetch-data-from-json-url",
+    "5": "fetch-data-from-xml-url",
+    "6": "update-chart-data",
+    "7": "update-chart-attributes",
+    "8": "client-side-exporting",
+    "9": "change-chart-type-runtime",
+    "10": "trigger-events-from-chart",
+    "11": "use-annotations",
+    "12": "render-fusionmaps",
+    "13": "drill-down",
+    "14": "simple-widget"
+  },
+  "wrapperSampleMapping": {
+    "react-fc": []
+  },
+  "sampleProps": {
+    "1": {
+      "title": "A Simple Column Chart",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/WowAFPmmvAzx4DP29M3K/"
+      },
+      "directery": "simple-column-chart",
+      "className": "SimpleColumnChart"
+    },
+    "2": {
+      "title": "A 3D Pie Chart",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/PMYojVGxqXJoKsEKbAu9/"
+      },
+      "directery": "3d-pie-chart",
+      "className": "3dPieChart"
+    },
+    "3": {
+      "title": "A Column, Area and Line Combi Chart",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/9YVJsfW5ujm8gVXfGY0B/"
+      },
+      "directery": "column-area-line-combi-chart",
+      "className": "ColumnAreaLineCombiChart"
+    },
+    "4": {
+      "title": "Fetch data from JSON URL",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/uFbQ8GUWAVqfLJXpYju6/"
+      },
+      "directery": "fetch-data-from-json-url",
+      "className": "FetchDataFromJsonUrl"
+    },
+    "5": {
+      "title": "Fetch data from XML URL",
+      "data": "data.xml",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/SC12epi1Fc3SrJq4GQde/"
+      },
+      "directery": "fetch-data-from-xml-url",
+      "className": "FetchDataFromXmlUrl"
+    },
+    "6": {
+      "title": "Update chart data",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/MGVka8FdLIr4Kl3rZIL5/"
+      },
+      "directery": "update-chart-data",
+      "className": "UpdateChartData"
+    },
+    "7": {
+      "title": "Update chart attributes",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/fY9uLtqAjTiMz17EGIe0/"
+      },
+      "directery": "update-chart-attributes",
+      "className": "UpdateChartAttributes"
+    },
+    "8": {
+      "title": "Client side exporting",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/TL2qJgny5sGkTlf4umN0/"
+      },
+      "directery": "client-side-exporting",
+      "className": "ClientSideExporting"
+    },
+    "9": {
+      "title": "Change chart type at runtime",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/u6SQHYgOsVeJVKKdC0ZB/"
+      },
+      "directery": "change-chart-type-runtime",
+      "className": "ChangeChartTypeRuntime"
+    },
+    "10": {
+      "title": "Trigger events from chart",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/Amq8ly5uIW9KQ5XepNzU/"
+      },
+      "directery": "trigger-events-from-chart",
+      "className": "TriggerEventsFromChart"
+    },
+    "11": {
+      "title": "Use annotations",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/qIKY9suwowEvMvunuX9e/"
+      },
+      "directery": "use-annotations",
+      "className": "UseAnnotations"
+    },
+    "12": {
+      "title": "Render FusionMaps",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directery": "render-fusionmaps",
+      "className": "RenderFusionmaps"
+    },
+    "13": {
+      "title": "Drill Down Chart",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directery": "drill-down",
+      "className": "DrillDown"
+    },
+    "14": {
+      "title": "A Simple Widget",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directery": "simple-widget",
+      "className": "SimpleWidget"
+    }
+  }
+}
