@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import Header from './Header'
-import Footer from './Footer'
+import Banner from './Banner'
+import Feature from './Feature'
 import Router from './Router'
+import Info from './Info'
+import Footer from './Footer'
+
+import '../assets/css/codemirror.css';
+import '../assets/css/dracula.css';
+
 // import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+// import './App.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import 'prismjs/prism.js';
 import 'prismjs/themes/prism.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div>
         <Header/>
-        <Router/>
-        <Footer/>
+        <div className="page-container">
+          <Banner/>
+          <Feature/>
+          <Router/>
+          <Info/>
+          <Footer/>
+        </div>
       </div>
     );
   }
