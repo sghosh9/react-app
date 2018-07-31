@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Column2D from 'fusioncharts/viz/column2d';
-import Bar2D from 'fusioncharts/viz/bar2d';
-import Line from 'fusioncharts/viz/line';
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import data from './data.json';
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
@@ -10,12 +8,12 @@ import data from './data.json';
 import "../../assets/js/fusioncharts.theme.fusion";
 import "../../assets/css/fusioncharts.theme.fusion.css";
 
-ReactFC.fcRoot(FusionCharts, Column2D, Bar2D, Line);
+ReactFC.fcRoot(FusionCharts, Charts);
 
 const chartConfigs = {
   type: 'column2d',
   width: '100%',
-  height: '100%',
+  height: '80%',
   dataFormat: 'json',
   dataSource: data
 };
@@ -39,8 +37,6 @@ class Chart extends Component {
     return (
       <div>
         <ReactFC {...this.state} />
-        <br />
-        <br />
         <center>
           <select onChange={this.onChange}>
             <option value="column2d">Column 2D Chart</option>

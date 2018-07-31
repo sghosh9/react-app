@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Column2D from 'fusioncharts/viz/column2d';
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import data from './data.json';
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
@@ -8,12 +8,12 @@ import data from './data.json';
 import "../../assets/js/fusioncharts.theme.fusion";
 import "../../assets/css/fusioncharts.theme.fusion.css";
 
-ReactFC.fcRoot(FusionCharts, Column2D);
+ReactFC.fcRoot(FusionCharts, Charts);
 
 const chartConfigs = {
   type: 'column2d',
   width: '100%',
-  height: '75%',
+  height: '80%',
   dataFormat: 'json',
   dataSource: data
 };
@@ -48,8 +48,6 @@ class Chart extends Component {
     return (
       <div>
         <ReactFC {...this.state} />
-        <br />
-        <br />
         <center>
           <button className="btn btn-custom" onClick={this.changeBackgroundColor}>Change Background</button>
           <button className="btn btn-custom" onClick={this.changeCaptionTextAlignment}>Change Caption Alignment</button>

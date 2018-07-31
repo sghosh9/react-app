@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
+import FusionCharts from 'fusioncharts';
 import Maps from 'fusioncharts/fusioncharts.maps';
 import World from 'fusioncharts/maps/fusioncharts.world';
 import ReactFC from 'react-fusioncharts';

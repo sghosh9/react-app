@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Pie3D from 'fusioncharts/viz/pie3d';
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import data from './data.json';
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
@@ -8,7 +8,7 @@ import data from './data.json';
 import "../../assets/js/fusioncharts.theme.fusion";
 import "../../assets/css/fusioncharts.theme.fusion.css";
 
-ReactFC.fcRoot(FusionCharts, Pie3D);
+ReactFC.fcRoot(FusionCharts, Charts);
 
 const chartConfigs = {
   type: 'Pie3D',

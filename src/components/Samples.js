@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import {Controlled as CodeMirror} from 'react-codemirror2'
-// import CodeMirror from "react-codemirror";
 import 'codemirror/mode/javascript/javascript';
 
 import config from '../samples/config.json';
@@ -9,13 +8,13 @@ import config from '../samples/config.json';
 import SimpleChart from '../samples/simple-chart';
 import Pie3DChart from '../samples/3d-pie-chart';
 import ColumnLineAreaCombiChart from '../samples/column-line-area-combi-chart';
-// import FetchDataFromJsonUrl from '../samples/fetch-data-from-json-url';
-// import FetchDataFromXmlUrl from '../samples/fetch-data-from-xml-url';
+import FetchDataFromJsonUrl from '../samples/fetch-data-from-json-url';
+import FetchDataFromXmlUrl from '../samples/fetch-data-from-xml-url';
 import UpdateChartData from '../samples/update-chart-data';
 import UpdateChartAttributes from '../samples/update-chart-attributes';
 import TriggerEventsFromChart from '../samples/trigger-events-from-chart';
 import PercentageCalculation from "../samples/percentage-calculation";
-// import ClientSideExporting from '../samples/client-side-exporting';
+import ClientSideExporting from '../samples/client-side-exporting';
 import DrillDown from '../samples/drill-down';
 import SimpleGauge from '../samples/simple-gauge';
 import SimpleMap from '../samples/simple-map';
@@ -68,9 +67,9 @@ class Samples extends Component {
 
     var editorText = '';
     if (this.state.button === 'js') {
-      editorText = config.sampleProps[this.state.activePath].directory;
+      editorText = config.sampleProps[this.state.activePath].code;
     } else {
-      editorText = config.sampleProps[this.state.activePath].className;
+      editorText = config.sampleProps[this.state.activePath].data;
     }
     return (
       <BrowserRouter>
@@ -98,13 +97,13 @@ class Samples extends Component {
                       <Route path='/simple-chart' component={SimpleChart} />
                       <Route path='/3d-pie-chart' component={Pie3DChart} />
                       <Route path='/column-line-area-combi-chart' component={ColumnLineAreaCombiChart} />
-                      {/* <Route path='/fetch-data-from-json-url' component={FetchDataFromJsonUrl} /> */}
-                      {/* <Route path='/fetch-data-from-xml-url' component={FetchDataFromXmlUrl} /> */}
+                      <Route path='/fetch-data-from-json-url' component={FetchDataFromJsonUrl} />
+                      <Route path='/fetch-data-from-xml-url' component={FetchDataFromXmlUrl} />
                       <Route path='/update-chart-data' component={UpdateChartData} />
                       <Route path='/update-chart-attributes' component={UpdateChartAttributes} />
                       <Route path='/trigger-events-from-chart' component={TriggerEventsFromChart} />
                       <Route path='/percentage-calculation' component={PercentageCalculation} />
-                      {/* <Route path='/export-charts' component={ClientSideExporting} /> */}
+                      <Route path='/export-charts' component={ClientSideExporting} />
                       <Route path='/drill-down' component={DrillDown} />
                       <Route path='/simple-gauge' component={SimpleGauge} />
                       <Route path='/world-map' component={SimpleMap} />
@@ -116,10 +115,10 @@ class Samples extends Component {
                 </div>
 
                 <div className="code-view mt-2">
-                  <div className="card-shadow">
+                  <div className="card-shadow" style={{background: '#03040B'}}>
                     <div className="code-nav-btns btn-group" role="group" aria-label="Basic example">
-                      <button type="button" id="js" onClick={() => this.buttonClicked('js')} className={"btn btn-code".concat(this.state.button === 'js' && ' selected')}>JavaScript</button>
-                      <button type="button" id="data" onClick={() => this.buttonClicked('data')} className={"btn btn-code".concat(this.state.button === 'data' && ' selected')}>Data</button>
+                      <button type="button" id="js" onClick={() => this.buttonClicked('js')} className={"btn btn-code".concat(this.state.button === 'js' ? ' selected': '')}>JavaScript</button>
+                      <button type="button" id="data" onClick={() => this.buttonClicked('data')} className={"btn btn-code".concat(this.state.button === 'data' ? ' selected': '')}>Data</button>
                     </div>
                     <div className="card-body p-0">
                       <div className="code-panel">

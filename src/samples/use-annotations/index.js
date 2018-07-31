@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Spline from 'fusioncharts/viz/spline';
+import FusionCharts from 'fusioncharts';
+import PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import ReactFC from 'react-fusioncharts';
 import data from './data.json';
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
@@ -8,7 +8,7 @@ import data from './data.json';
 import "../../assets/js/fusioncharts.theme.fusion";
 import "../../assets/css/fusioncharts.theme.fusion.css";
 
-ReactFC.fcRoot(FusionCharts, Spline);
+ReactFC.fcRoot(FusionCharts, PowerCharts);
 
 const chartConfigs = {
   type: 'spline',

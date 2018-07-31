@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import MSCombi2D from 'fusioncharts/viz/mscombi2d';
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import data from './data.json';
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
@@ -8,7 +8,7 @@ import data from './data.json';
 import "../../assets/js/fusioncharts.theme.fusion";
 import "../../assets/css/fusioncharts.theme.fusion.css";
 
-ReactFC.fcRoot(FusionCharts, MSCombi2D);
+ReactFC.fcRoot(FusionCharts, Charts);
 
 const chartConfigs = {
   type: 'mscombi2d',
