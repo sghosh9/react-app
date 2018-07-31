@@ -57,11 +57,75 @@ var chartJSON = {
   ]
 };
 
-var code1 = 'import React from \'react\';\nimport ReactDOM from \'react-dom\';\nimport FusionCharts from \'fusioncharts\';\nimport Charts from \'fusioncharts/fusioncharts.charts\';\nimport ReactFC from \'react-fusioncharts\';\nimport FusionTheme from \'fusioncharts/themes/fusioncharts.theme.fusion\';\n\nCharts(FusionCharts);\nFusionTheme(FusionCharts);\n\nconst myDataSource = ' + JSON.stringify(chartJSON, null, "\t") + ';\n\nconst chartConfigs = {\n  \ttype: \'column2d\',\n  \twidth: 600,\n  \theight: 400,\n  \tdataFormat: \'json\',\n  \tdataSource: myDataSource,\n};\n\nReactDOM.render(\n  \t<ReactFC {...chartConfigs} />,\n  \tdocument.getElementById(\'root\'),\n);';
+var mapsJSON = {
+  "chart": {
+      "caption": "Average Annual Population Growth",
+      "subcaption": " 1955-2015",
+      "numbersuffix": "%",
+      "includevalueinlabels": "1",
+      "labelsepchar": ": ",
+      "entityFillHoverColor": "#FFF9C4",
+      "theme": "fusion"
+  },
+  "colorrange": {
+      "minvalue": "0",
+      "code": "#FFE0B2",
+      "gradient": "1",
+      "color": [
+          {
+              "minvalue": "0.5",
+              "maxvalue": "1.0",
+              "color": "#FFD74D"
+          },
+          {
+              "minvalue": "1.0",
+              "maxvalue": "2.0",
+              "color": "#FB8C00"
+          },
+          {
+              "minvalue": "2.0",
+              "maxvalue": "3.0",
+              "color": "#E65100"
+          }
+      ]
+  },
+  "data": [
+      {
+          "id": "NA",
+          "value": ".82",
+          "showLabel": "1"
+      },
+      {
+          "id": "SA",
+          "value": "2.04",
+          "showLabel": "1"
+      },
+      {
+          "id": "AS",
+          "value": "1.78",
+          "showLabel": "1"
+      },
+      {
+          "id": "EU",
+          "value": ".40",
+          "showLabel": "1"
+      },
+      {
+          "id": "AF",
+          "value": "2.58",
+          "showLabel": "1"
+      },
+      {
+          "id": "AU",
+          "value": "1.30",
+          "showLabel": "1"
+      }
+  ]
+};
 
-var code2 = 'import React from \'react\';\nimport ReactDOM from \'react-dom\';\nimport ReactFC from \'react-fusioncharts\';\n\n// Here import licensed version of FusionCharts\nimport FusionCharts from \'./path/to/fusioncharts\';\nimport Charts from \'./path/to/fusioncharts/fusioncharts.charts\';\n\n// Provide FusionCharts core and other modules to resolve\nReactFC.fcRoot(FusionCharts, Charts)\n\n// Rest of the application code';
+var code1 = "import React, { Component } from 'react';\nimport ReactDOM from 'react-dom';\nimport FusionCharts from 'fusioncharts/core';\nimport Column2D from 'fusioncharts/viz/column2d';\nimport ReactFC from 'react-fusioncharts';\nimport FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';\n\nReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);\n\nconst myDataSource = " + JSON.stringify(chartJSON, null, "\t") + ";\n\nconst chartConfigs = {\n  \ttype: 'column2d',\n  \twidth: 600,\n  \theight: 400,\n  \tdataFormat: 'json',\n  \tdataSource: myDataSource,\n};\n\nReactDOM.render(\n  \t<ReactFC {...chartConfigs} />,\n  \tdocument.getElementById('root'),\n);";
 
-var code3 = 'import React from \'react\';\nimport ReactDOM from \'react-dom\';\nimport ReactFC from \'react-fusioncharts\';\n\n// Here import licensed version of FusionCharts\nimport FusionCharts from \'./library_path/fusioncharts\';\nimport Charts from \'./library_path/fusioncharts/fusioncharts.charts\';\n\n// Resolve modules\nCharts(FusionCharts)\n\nReactDOM.render(\n\t<ReactFC\n\twidth="600"\n\theight="400"\n\ttype="column2d"\n\tdataSource={ /* Chart data source */ }\n\tfcLibrary={FusionCharts} // Provide FusionCharts library\n\t/>,\n\tdocument.getElementById(\'root\'),\n);\n\n// Rest of the application code';
+var code2 = "import React, { Component } from 'react';\nimport ReactDOM from 'react-dom';\nimport FusionCharts from 'fusioncharts/core';\nimport Maps from 'fusioncharts/fusioncharts/maps';\nimport World from 'fusioncharts/maps/es/fusioncharts.world';\nimport ReactFC from 'react-fusioncharts';\nimport FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';\n\nReactFC.fcRoot(FusionCharts, Maps, World, FusionTheme);\n\nconst myDataSource = " + JSON.stringify(mapsJSON, null, "\t") + ";\n\nconst chartConfigs = {\n  \ttype: 'world',\n  \twidth: 600,\n  \theight: 400,\n  \tdataFormat: 'json',\n  \tdataSource: myDataSource,\n};\n\nReactDOM.render(\n  \t<ReactFC {...chartConfigs} />,\n  \tdocument.getElementById('root'),\n);";
 
 class Banner extends React.Component {
   render() {
@@ -120,30 +184,23 @@ class Banner extends React.Component {
                 </div>
               </div>
             </div>
-            <p>
-              <b>Using Licensed Version of <a className="ref-link" href="//www.fusioncharts.com/" target="_blank">FusionCharts</a></b>
-            </p>
-            <p className="code-desc">While using licensed version of <a className="ref-link" href="//www.fusioncharts.com/" target="_blank">FusionCharts</a>, you need to specify library as follows:
-              <br />Specify library for all charts:
-            </p>
+          </div>
+        </div>
+
+        <div className="row pt-3">
+          <div className="col">
+            <div className="h3 mt-2">Render FusionMaps</div>
+          </div>
+        </div>
+        <p className="code-desc">To render a map, import the FusionMaps module along with the map definition.</p>
+        <div className="row">
+          <div className="col-12">
             <div className="code-view mt-2">
               <div className="card-shadow">
                 <div className="card-body p-0">
                   <div className="code-panel">
-                    <div className="codeMirrorDiv" id="c4">
+                    <div className="codeMirrorDiv" id="c3">
                       <CodeMirror value={code2} options={options} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p className="code-desc">Specify library for a particular chart:</p>
-            <div className="code-view mt-2">
-              <div className="card-shadow">
-                <div className="card-body p-0">
-                  <div className="code-panel">
-                    <div id="c5">
-                      <CodeMirror value={code3} options={options} />
                     </div>
                   </div>
                 </div>

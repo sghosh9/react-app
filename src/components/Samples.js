@@ -46,8 +46,19 @@ class Samples extends Component {
 
     this.state = {
       activePath: activePath,
-      button: 'js'
+      button: 'js',
+      showModal: false
     }
+  }
+
+  componentDidMount() {
+    window.addEventListener('click', this.windowClicked);
+  }
+
+  windowClicked() {
+    // this.setState({
+    //   showModal: false,
+    // });
   }
 
   tabClicked(index) {
@@ -59,6 +70,12 @@ class Samples extends Component {
   buttonClicked(button) {
     this.setState({
       button: button
+    });
+  }
+
+  mobileSelectClick() {
+    this.setState({
+      showModal: true,
     });
   }
 
@@ -75,6 +92,50 @@ class Samples extends Component {
       <BrowserRouter>
         <div className="demo bg-light-purple pt-4 pb-4">
           <div className="container container-1200 info-wrapper">
+          <div className="row">
+              <div className="col-12 d-flex justify-content-center d-md-none">
+                <div id="mobileChart-selector" className="base-dropdown chart-selector" onClick={() => this.mobileSelectClick()}>
+                  <div className="selector">A Simple Column Chart</div>
+                  <div className="placeholder">Quick Demo:</div>
+                  <div className="caret">
+                    <i className="fc_dropdown"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="myModal" className={"modal".concat(!this.state.showModal ? ' hidden': '')}>
+              <div className="modal-content">
+                <div className="nav-list">
+                  {
+                    Object.keys(config.sampleProps).map(i =>
+                      <NavLink className="nav-item" activeClassName="selected" key={"tab-" + i} to={config.sampleRouteMapping[i]} onClick={() => this.tabClicked(i)}>
+                        <div className="h5">{config.sampleProps[i].title}</div>
+                        <div className="p item-desc">{config.sampleProps[i].desc}</div>
+                      </NavLink>
+                    )
+                  }
+                  {/* <div className="nav-item selected">
+                    <div className="p">A Simple Column Chart</div>
+                  </div>
+                  <div className="nav-item">
+                    <div className="p">A 3D Pie Chart</div>
+                  </div>
+                  <div className="nav-item">
+                    <div className="p">A Column, Area and Line Combi Chart</div>
+                  </div>
+                  <div className="nav-item">
+                    <div className="p">Fetch data from JSON URL</div>
+                  </div>
+                  <div className="nav-item">
+                    <div className="p">Update chart data from component</div>
+                  </div>
+                  <div className="nav-item">
+                    <div className="p">Trigger events from chart</div>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+
             <div className="row">
               <div className="side-nav col-3 d-none d-md-block">
                 <div className="nav-heading">Quick Demo:</div>
