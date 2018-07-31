@@ -51,16 +51,6 @@ class Samples extends Component {
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('click', this.windowClicked);
-  }
-
-  windowClicked() {
-    // this.setState({
-    //   showModal: false,
-    // });
-  }
-
   tabClicked(index) {
     this.setState({
       activePath: index,
@@ -73,9 +63,15 @@ class Samples extends Component {
     });
   }
 
-  mobileSelectClick() {
+  modalToggle(modal, event) {
+    console.log(modal, event && event.target);
+
+    var modalEle = document.getElementById('myModal');
+    if (event && (event.target !== modalEle && !modalEle.contains(event.target))) {
+      modal = true
+    }
     this.setState({
-      showModal: true,
+      showModal: modal,
     });
   }
 
@@ -94,8 +90,8 @@ class Samples extends Component {
           <div className="container container-1200 info-wrapper">
           <div className="row">
               <div className="col-12 d-flex justify-content-center d-md-none">
-                <div id="mobileChart-selector" className="base-dropdown chart-selector" onClick={() => this.mobileSelectClick()}>
-                  <div className="selector">A Simple Column Chart</div>
+                <div id="mobileChart-selector" className="base-dropdown chart-selector" onClick={() => this.modalToggle(true)}>
+                  <div className="selector">{config.sampleProps[this.state.activePath].title}</div>
                   <div className="placeholder">Quick Demo:</div>
                   <div className="caret">
                     <i className="fc_dropdown"></i>
@@ -103,7 +99,7 @@ class Samples extends Component {
                 </div>
               </div>
             </div>
-            <div id="myModal" className={"modal".concat(!this.state.showModal ? ' hidden': '')}>
+            <div id="myModal" className={"modal".concat(this.state.showModal ? ' sumo' : ' hidden')} onClick={(event) => this.modalToggle(false, event)}>
               <div className="modal-content">
                 <div className="nav-list">
                   {
@@ -114,24 +110,6 @@ class Samples extends Component {
                       </NavLink>
                     )
                   }
-                  {/* <div className="nav-item selected">
-                    <div className="p">A Simple Column Chart</div>
-                  </div>
-                  <div className="nav-item">
-                    <div className="p">A 3D Pie Chart</div>
-                  </div>
-                  <div className="nav-item">
-                    <div className="p">A Column, Area and Line Combi Chart</div>
-                  </div>
-                  <div className="nav-item">
-                    <div className="p">Fetch data from JSON URL</div>
-                  </div>
-                  <div className="nav-item">
-                    <div className="p">Update chart data from component</div>
-                  </div>
-                  <div className="nav-item">
-                    <div className="p">Trigger events from chart</div>
-                  </div> */}
                 </div>
               </div>
             </div>
