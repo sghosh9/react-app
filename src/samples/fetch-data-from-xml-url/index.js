@@ -14,7 +14,7 @@ const chartConfigs = {
   width: '100%',
   height: '100%',
   dataFormat: 'xmlurl',
-  dataSource: 'data/data.xml'
+  dataSource: './data/data.xml'
 };
 
 class Chart extends Component {

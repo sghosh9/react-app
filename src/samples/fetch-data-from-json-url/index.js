@@ -14,7 +14,7 @@ const chartConfigs = {
   width: '100%',
   height: '100%',
   dataFormat: 'jsonurl',
-  dataSource: 'data/data.json'
+  dataSource: './data/data.json'
 };
 
 class Chart extends Component {

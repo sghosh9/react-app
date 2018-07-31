@@ -51,6 +51,15 @@ class Samples extends Component {
     }
   }
 
+  checkActiveTab(match, location, i) {
+    if (location.pathname === "/" && parseInt(i) === 1) {
+      function makeActive(){
+        return true;
+      }
+      return makeActive;
+    }
+  }
+
   tabClicked(index) {
     this.setState({
       activePath: index,
@@ -104,7 +113,7 @@ class Samples extends Component {
                 <div className="nav-list">
                   {
                     Object.keys(config.sampleProps).map(i =>
-                      <NavLink className="nav-item" activeClassName="selected" key={"tab-" + i} to={config.sampleRouteMapping[i]} onClick={() => this.tabClicked(i)}>
+                      <NavLink className="nav-item" activeClassName="selected" key={"tab-" + i} to={config.sampleRouteMapping[i]} onClick={() => this.tabClicked(i)} isActive={(match, location) => this.checkActiveTab(match, location, i)}>
                         <div className="h5">{config.sampleProps[i].title}</div>
                         <div className="p item-desc">{config.sampleProps[i].desc}</div>
                       </NavLink>
@@ -120,7 +129,7 @@ class Samples extends Component {
                 <div className="nav-list">
                   {
                     Object.keys(config.sampleProps).map(i =>
-                      <NavLink className="nav-item" activeClassName="selected" key={"tab-" + i} to={config.sampleRouteMapping[i]} onClick={() => this.tabClicked(i)}>
+                      <NavLink className="nav-item" activeClassName="selected" key={"tab-" + i} to={config.sampleRouteMapping[i]} onClick={() => this.tabClicked(i)} isActive={(match, location) => this.checkActiveTab(match, location, i)}>
                         <div className="h5">{config.sampleProps[i].title}</div>
                         <div className="p item-desc">{config.sampleProps[i].desc}</div>
                       </NavLink>
