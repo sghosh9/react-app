@@ -1,177 +1,217 @@
 {
   "sampleRouteMapping": {
-    "1": "simple-column-chart",
-    "2": "3d-pie-chart",
-    "3": "column-area-line-combi-chart",
-    "4": "fetch-data-from-json-url",
-    "5": "fetch-data-from-xml-url",
-    "6": "update-chart-data",
-    "7": "update-chart-attributes",
-    "8": "client-side-exporting",
-    "9": "change-chart-type-runtime",
-    "10": "trigger-events-from-chart",
-    "11": "use-annotations",
-    "12": "render-fusionmaps",
-    "13": "drill-down",
-    "14": "simple-widget"
+    "1": "/simple-chart",
+    "2": "/3d-pie-chart",
+    "3": "/column-line-area-combi-chart",
+    "4": "/fetch-data-from-json-url",
+    "5": "/fetch-data-from-xml-url",
+    "6": "/update-chart-data",
+    "7": "/update-chart-attributes",
+    "8": "/trigger-events-from-chart",
+    "9": "/percentage-calculation",
+    "10": "/export-charts",
+    "11": "/drill-down",
+    "12": "/simple-gauge",
+    "13": "/world-map",
+    "14": "/apply-theme",
+    "15": "/change-chart-type-runtime",
+    "16": "/use-annotations"
   },
   "wrapperSampleMapping": {
     "react-fc": []
   },
   "sampleProps": {
     "1": {
-      "title": "A Simple Column Chart",
+      "title": "A Simple Chart",
+      "desc": "A simple chart with all data embedded into the directive",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/WowAFPmmvAzx4DP29M3K/"
       },
-      "directery": "simple-column-chart",
+      "directory": "simple-chart",
       "className": "SimpleColumnChart"
     },
     "2": {
       "title": "A 3D Pie Chart",
+      "desc": "A 3D pie chart using the datasource attribute from components scope",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/PMYojVGxqXJoKsEKbAu9/"
       },
-      "directery": "3d-pie-chart",
+      "directory": "3d-pie-chart",
       "className": "3dPieChart"
     },
     "3": {
-      "title": "A Column, Area and Line Combi Chart",
+      "title": "A Column, Line and Area Combi Chart",
+      "desc": "A column, line and area combination chart using the datasource attribute",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/9YVJsfW5ujm8gVXfGY0B/"
       },
-      "directery": "column-area-line-combi-chart",
+      "directory": "column-line-area-combi-chart",
       "className": "ColumnAreaLineCombiChart"
     },
     "4": {
       "title": "Fetch data from JSON URL",
+      "desc": "Fetch data remotely from a JSON file or URL",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/uFbQ8GUWAVqfLJXpYju6/"
       },
-      "directery": "fetch-data-from-json-url",
+      "directory": "fetch-data-from-json-url",
       "className": "FetchDataFromJsonUrl"
     },
     "5": {
       "title": "Fetch data from XML URL",
+      "desc": "Fetch data remotely from a XML file or URL",
       "data": "data.xml",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/SC12epi1Fc3SrJq4GQde/"
       },
-      "directery": "fetch-data-from-xml-url",
+      "directory": "fetch-data-from-xml-url",
       "className": "FetchDataFromXmlUrl"
     },
     "6": {
-      "title": "Update chart data",
+      "title": "Update chart data from component",
+      "desc": "Change the data dynamically in the component and watch the chart update automatically",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/MGVka8FdLIr4Kl3rZIL5/"
       },
-      "directery": "update-chart-data",
+      "directory": "update-chart-data",
       "className": "UpdateChartData"
     },
     "7": {
-      "title": "Update chart attributes",
+      "title": "Update chart attribute from component",
+      "desc": "Change a parameter in the components variable and see it automatically update the chart",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/fY9uLtqAjTiMz17EGIe0/"
       },
-      "directery": "update-chart-attributes",
+      "directory": "update-chart-attributes",
       "className": "UpdateChartAttributes"
     },
     "8": {
-      "title": "Client side exporting",
-      "data": "data.json",
-      "logo": "logo.svg",
-      "logoHover": "logo-hover.svg",
-      "interactiveViewURL": {
-        "react-fc": "https://embed.plnkr.co/TL2qJgny5sGkTlf4umN0/"
-      },
-      "directery": "client-side-exporting",
-      "className": "ClientSideExporting"
-    },
-    "9": {
-      "title": "Change chart type at runtime",
-      "data": "data.json",
-      "logo": "logo.svg",
-      "logoHover": "logo-hover.svg",
-      "interactiveViewURL": {
-        "react-fc": "https://embed.plnkr.co/u6SQHYgOsVeJVKKdC0ZB/"
-      },
-      "directery": "change-chart-type-runtime",
-      "className": "ChangeChartTypeRuntime"
-    },
-    "10": {
       "title": "Trigger events from chart",
+      "desc": "Hover on a plot to trigger an event in the component, and update variables",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/Amq8ly5uIW9KQ5XepNzU/"
       },
-      "directery": "trigger-events-from-chart",
+      "directory": "trigger-events-from-chart",
       "className": "TriggerEventsFromChart"
     },
+    "9": {
+      "title": "Percentage Calculation",
+      "desc": "Hover on a plot to see the percentage value with respect to total",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/Amq8ly5uIW9KQ5XepNzU/"
+      },
+      "directory": "percentage-calculation",
+      "className": "PercentageCalculation"
+    },
+    "10": {
+      "title": "Export multiple charts",
+      "desc": "Use Batch Export to export multiple charts as a single image/PDF",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/TL2qJgny5sGkTlf4umN0/"
+      },
+      "directory": "client-side-exporting",
+      "className": "ClientSideExporting"
+    },
     "11": {
+      "title": "Add drill-down to chart",
+      "desc": "Use LinkedCharts to quickly add drill-down to charts",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directory": "drill-down",
+      "className": "DrillDown"
+    },
+    "12": {
+      "title": "A simple gauge",
+      "desc": "A simple gauge to show customer satisfaction score",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directory": "simple-gauge",
+      "className": "SimpleGauge"
+    },
+    "13": {
+      "title": "World Map",
+      "desc": "World map showing data for different continents",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directory": "simple-map",
+      "className": "SimpleMap"
+    },
+    "14": {
+      "title": "Applying a different theme",
+      "desc": "Choosing from different themes available in FusionCharts Suite",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
+      },
+      "directory": "apply-theme",
+      "className": "ApplyTheme"
+    },
+    "15": {
+      "title": "Change chart type at runtime",
+      "desc": "",
+      "data": "data.json",
+      "logo": "logo.svg",
+      "logoHover": "logo-hover.svg",
+      "interactiveViewURL": {
+        "react-fc": "https://embed.plnkr.co/u6SQHYgOsVeJVKKdC0ZB/"
+      },
+      "directory": "change-chart-type-runtime",
+      "className": "ChangeChartTypeRuntime"
+    },
+    "16": {
       "title": "Use annotations",
+      "desc": "",
       "data": "data.json",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {
         "react-fc": "https://embed.plnkr.co/qIKY9suwowEvMvunuX9e/"
       },
-      "directery": "use-annotations",
+      "directory": "use-annotations",
       "className": "UseAnnotations"
-    },
-    "12": {
-      "title": "Render FusionMaps",
-      "data": "data.json",
-      "logo": "logo.svg",
-      "logoHover": "logo-hover.svg",
-      "interactiveViewURL": {
-        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
-      },
-      "directery": "render-fusionmaps",
-      "className": "RenderFusionmaps"
-    },
-    "13": {
-      "title": "Drill Down Chart",
-      "data": "data.json",
-      "logo": "logo.svg",
-      "logoHover": "logo-hover.svg",
-      "interactiveViewURL": {
-        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
-      },
-      "directery": "drill-down",
-      "className": "DrillDown"
-    },
-    "14": {
-      "title": "A Simple Widget",
-      "data": "data.json",
-      "logo": "logo.svg",
-      "logoHover": "logo-hover.svg",
-      "interactiveViewURL": {
-        "react-fc": "https://embed.plnkr.co/EJwgH7aqH2pFsiGjYnXQ/"
-      },
-      "directery": "simple-widget",
-      "className": "SimpleWidget"
     }
   }
 }

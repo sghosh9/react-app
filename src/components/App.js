@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header'
 import Banner from './Banner'
 import Feature from './Feature'
-import Router from './Router'
+import Samples from './Samples'
 import Info from './Info'
 import Footer from './Footer'
 
@@ -23,7 +23,7 @@ class App extends Component {
         <div className="page-container">
           <Banner/>
           <Feature/>
-          <Router/>
+          <Samples/>
           <Info/>
           <Footer/>
         </div>

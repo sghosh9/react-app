@@ -23,22 +23,35 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      actualValue: 'Hover on the plot to see the value along with the label',
+      actualValue: 'Hover on the plot to see the percentage along with the label',
     };
 
     this.showPlotValue = this.showPlotValue.bind(this);
+    this.renderComplete = this.renderComplete.bind(this);
   }
 
   showPlotValue(eventObj, dataObj) {
+    const value = ((dataObj.value / this.state.total) * 100).toFixed(2);
     this.setState({
-      actualValue: `You’re are currently hovering over ${dataObj.categoryLabel} whose value is ${dataObj.displayValue}`,
+      actualValue: `${dataObj.categoryLabel} is ${value}% of the total`,
+    });
+  }
+
+  renderComplete(chart) {
+    const chartData = chart.getJSONData();
+    this.setState({
+      total: chartData.data.reduce((p, c) => p + Number(c.value), 0),
     });
   }
 
   render() {
     return (
       <div>
-        <ReactFC {...chartConfigs} fcEvent-dataplotRollOver={this.showPlotValue} />
+        <ReactFC
+          {...chartConfigs}
+          onRender={this.renderComplete}
+          fcEvent-dataplotRollOver={this.showPlotValue}
+        />
         <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.actualValue}</p>
       </div>
     );
