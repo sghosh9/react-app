@@ -36,8 +36,9 @@ class Samples extends Component {
   constructor(props) {
     super(props);
 
+    var locationArr = window.location.pathname.split('/');
     var paths = Object.values(config.sampleRouteMapping);
-    var activePath = paths.findIndex(element => element === window.location.pathname);
+    var activePath = paths.findIndex(element => element === '/' + locationArr[locationArr.length - 1]);
     if (activePath === -1) {
       activePath = 1;
     } else {
@@ -52,7 +53,7 @@ class Samples extends Component {
   }
 
   checkActiveTab(match, location, i) {
-    if (location.pathname === "/" && parseInt(i) === 1) {
+    if ((location.pathname === "/" && parseInt(i) === 1) || (match && match.url === location.pathname)) {
       function makeActive(){
         return true;
       }
@@ -73,8 +74,6 @@ class Samples extends Component {
   }
 
   modalToggle(modal, event) {
-    console.log(modal, event && event.target);
-
     var modalEle = document.getElementById('myModal');
     if (event && (event.target !== modalEle && !modalEle.contains(event.target))) {
       modal = true
@@ -85,8 +84,6 @@ class Samples extends Component {
   }
 
   render () {
-    console.log(this.state);
-
     var editorText = '';
     if (this.state.button === 'js') {
       editorText = config.sampleProps[this.state.activePath].code;
@@ -94,7 +91,7 @@ class Samples extends Component {
       editorText = config.sampleProps[this.state.activePath].data;
     }
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="react-app">
         <div className="demo bg-light-purple pt-4 pb-4">
           <div className="container container-1200 info-wrapper">
           <div className="row">
