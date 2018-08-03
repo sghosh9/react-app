@@ -91,7 +91,7 @@ class Samples extends Component {
       editorText = config.sampleProps[this.state.activePath].data;
     }
     return (
-      <BrowserRouter basename="react-app">
+      <BrowserRouter basename="react-fusioncharts-component">
         <div className="demo bg-light-purple pt-4 pb-4">
           <div className="container container-1200 info-wrapper">
           <div className="row">
