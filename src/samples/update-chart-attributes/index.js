@@ -22,10 +22,11 @@ class Chart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = chartConfigs;
+    this.state = JSON.parse(JSON.stringify(chartConfigs));
 
     this.changeBackgroundColor = this.changeBackgroundColor.bind(this);
     this.changeCaptionTextAlignment = this.changeCaptionTextAlignment.bind(this);
+    this.resetChart = this.resetChart.bind(this);
   }
 
   changeBackgroundColor() {
@@ -44,6 +45,12 @@ class Chart extends Component {
     });
   }
 
+  resetChart() {
+    this.setState({
+      dataSource: JSON.parse(JSON.stringify(chartConfigs.dataSource)),
+    });
+  }
+
   render() {
     return (
       <div>
@@ -51,6 +58,7 @@ class Chart extends Component {
         <center>
           <button className="btn btn-custom" onClick={this.changeBackgroundColor}>Change Background</button>
           <button className="btn btn-custom" onClick={this.changeCaptionTextAlignment}>Change Caption Alignment</button>
+          <button className="btn btn-red" onClick={this.resetChart}>Reset</button>
         </center>
       </div>
     );
