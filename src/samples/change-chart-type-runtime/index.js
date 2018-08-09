@@ -22,27 +22,47 @@ class Chart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = chartConfigs;
+    this.state = {
+      chart: {},
+      currentVal: 'column2d'
+    };
 
-    this.onChange = this.onChange.bind(this);
+    this.renderComplete = this.renderComplete.bind(this);
+    this.radioHandler = this.radioHandler.bind(this);
   }
 
-  onChange(e) {
+  renderComplete(chart) {
+    this.state.chart = chart;
+  }
+
+  radioHandler(e) {
+    this.state.chart.chartType(e.currentTarget.value);
     this.setState({
-      type: e.currentTarget.value,
+      currentVal: e.currentTarget.value
     });
   }
 
   render() {
     return (
       <div>
-        <ReactFC {...this.state} />
+        <ReactFC {...chartConfigs} onRender={this.renderComplete} />
+        <br />
         <center>
-          <select onChange={this.onChange}>
-            <option value="column2d">Column 2D Chart</option>
-            <option value="bar2d">Bar 2D Chart</option>
-            <option value="line">Line 2D Chart</option>
-          </select>
+          <span>Chose a chart type:</span>
+          <div className="change-type">
+            <div>
+              <input type="radio" value="column2d" onChange={this.radioHandler} checked={this.state.currentVal === 'column2d'} />
+              <label>Column 2D Chart</label>
+            </div>
+            <div>
+              <input type="radio" value="bar2d" onChange={this.radioHandler} checked={this.state.currentVal === 'bar2d'} />
+              <label>Bar 2D Chart</label>
+            </div>
+            <div>
+              <input type="radio" value="line" onChange={this.radioHandler} checked={this.state.currentVal === 'line'} />
+              <label>Line 2D Chart</label>
+            </div>
+          </div>
         </center>
       </div>
     );
