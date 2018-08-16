@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Pie2D from 'fusioncharts/viz/pie2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Pie2D, FusionTheme);
 
 const chartConfigs = {
   type: 'Pie2D',
@@ -47,8 +45,8 @@ class Chart extends Component {
     return (
       <div>
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
-        <button className='btn btn-custom' onClick={this.sliceMicrosoft}>Slice out Microsoft</button>
-        <button className='btn btn-red' onClick={this.resetChart}>Reset</button>
+        <button className='btn btn-outline-secondary btn-sm' onClick={this.sliceMicrosoft}>Slice out Microsoft</button>
+        <button className='btn btn-outline-secondary btn-sm' onClick={this.resetChart}>Reset</button>
       </div>
     )
   }

@@ -25,6 +25,8 @@ import RenderAlert from '../samples/render-alert';
 import SpecialEvents from '../samples/special-events';
 import DynamicEventListening from '../samples/dynamic-event-listening';
 import SliceDataPlots from '../samples/slice-data-plots';
+import ResponsiveCharts from '../samples/responsive-charts';
+import UCATM from '../samples/update-chart-attribute-through-method';
 
 var options = {
   tabSize: "4",
@@ -163,6 +165,8 @@ class Samples extends Component {
                       <Route path='/special-events' component={SpecialEvents} />
                       <Route path='/dynamic-event-listening' component={DynamicEventListening} />
                       <Route path='/slice-data-plots' component={SliceDataPlots} />
+                      <Route path='/responsive-charts' component={ResponsiveCharts} />
+                      <Route path='/update-chart-attribute-through-method' component={UCATM} />
                     </div>
                   </div>
                 </div>

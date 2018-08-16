@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',

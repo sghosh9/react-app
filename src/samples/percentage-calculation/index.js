@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',
@@ -24,16 +22,24 @@ class Chart extends Component {
 
     this.state = {
       actualValue: 'Hover on the plot to see the percentage along with the label',
+      message: 'Hover on the plot to see the value along with the label'
     };
 
-    this.showPlotValue = this.showPlotValue.bind(this);
+    this.dataplotrollover = this.dataplotrollover.bind(this);
+    this.dataplotrollout = this.dataplotrollout.bind(this);
     this.renderComplete = this.renderComplete.bind(this);
   }
 
-  showPlotValue(eventObj, dataObj) {
+  dataplotrollover(eventObj, dataObj) {
     const value = ((dataObj.value / this.state.total) * 100).toFixed(2);
     this.setState({
-      actualValue: `${dataObj.categoryLabel} is ${value}% of the total`,
+      message: [<strong>{dataObj.categoryLabel}</strong>, " is ", <strong>{value}</strong>, "% of the total"]
+    });
+  }
+
+  dataplotrollout(eventObj, dataObj) {
+    this.setState({
+      message: this.state.actualValue
     });
   }
 
@@ -50,9 +56,10 @@ class Chart extends Component {
         <ReactFC
           {...chartConfigs}
           onRender={this.renderComplete}
-          fcEvent-dataplotRollOver={this.showPlotValue}
+          fcEvent-dataplotRollOver={this.dataplotrollover}
+          fcEvent-dataplotRollOut={this.dataplotrollout}
         />
-        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.actualValue}</p>
+        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.message}</p>
       </div>
     );
   }

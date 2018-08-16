@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import PowerCharts from 'fusioncharts/fusioncharts.powercharts';
+import FusionCharts from 'fusioncharts/core';
+import Spline from 'fusioncharts/viz/spline';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, PowerCharts);
+ReactFC.fcRoot(FusionCharts, Spline, FusionTheme);
 
 const chartConfigs = {
   type: 'spline',

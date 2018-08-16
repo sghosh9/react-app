@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import DragColumn2D from 'fusioncharts/viz/dragcolumn2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, DragColumn2D, FusionTheme);
 
 const chartConfigs = {
   type: 'dragcolumn2d',
@@ -23,30 +21,24 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message: 'Drag a column column to see the change',
-      initVal: ''
+      message: 'You have dragged a plot of ______ dataset, its previous value was _______ and its current value is _______',
     };
 
-    this.dataplotDragStart = this.dataplotDragStart.bind(this);
     this.dataplotDragEnd = this.dataplotDragEnd.bind(this);
   }
 
-  dataplotDragStart(eventObj, dataObj) {
-    this.setState({
-      initVal: eventObj.data.startValue
-    });
-  }
-
   dataplotDragEnd(eventObj, dataObj) {
+    var prevValue = FusionCharts.formatNumber(dataObj.startValue.toFixed(2));
+    var curValue = FusionCharts.formatNumber(dataObj.endValue.toFixed(2));
     this.setState({
-      message: `You have dragged a plot of the ${eventObj.data.datasetName} dataset. Its previous value was ${this.state.initVal} and its current value is ${eventObj.data.endValue}.`
+      message: ["You have dragged a plot of the ", <strong>{eventObj.data.datasetName}</strong>, " dataset, its previous value was ", <strong>{prevValue}</strong>, " and its current value is ", <strong>{curValue}</strong>]
     });
   }
 
   render () {
     return (
       <div>
-        <ReactFC {...chartConfigs} fcEvent-dataplotDragStart={this.dataplotDragStart} fcEvent-dataplotDragEnd={this.dataplotDragEnd}/>
+        <ReactFC {...chartConfigs} fcEvent-dataplotDragEnd={this.dataplotDragEnd}/>
         <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.message}</p>
       </div>
     )

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',
@@ -25,7 +23,7 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message: defaultMessage
+      message: ''
     }
 
     this.trackPlotClick = this.trackPlotClick.bind(this);
@@ -35,18 +33,21 @@ class Chart extends Component {
 
   trackPlotClick() {
     FusionCharts.addEventListener('dataplotClick', this.dataPlotClick);
+    this.setState({
+      message: defaultMessage
+    });
   }
 
   dataPlotClick(eventObj, dataObj) {
     this.setState({
-      message: `You have clicked on plot ${dataObj.categoryLabel} whose value is ${dataObj.displayValue}`,
+      message: ['You have clicked on plot ', <strong>{dataObj.categoryLabel}</strong>, ' whose value is ', <strong>{dataObj.displayValue}</strong>],
     });
   }
 
   resetChart() {
     FusionCharts.removeEventListener('dataplotClick', this.dataPlotClick);
     this.setState({
-      message: defaultMessage
+      message: ''
     });
   }
 
@@ -54,10 +55,11 @@ class Chart extends Component {
     return (
       <div>
         <ReactFC {...chartConfigs} />
-        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.message}</p>
-        <br />
-        <button className='btn btn-custom' onClick={this.trackPlotClick}>Track Data Plot Clicks</button>
-        <button className='btn btn-red' onClick={this.resetChart}>Reset</button>
+        <div style={{ padding: '5px' }} id="message">
+          { this.state.message || ['Click on ', <b>TRACK DATA PLOT CLICK</b>, ' button to listen to dataplotclick event']}
+        </div>
+        <button className='btn btn-outline-secondary btn-sm' onClick={this.trackPlotClick}>Track Data Plot Clicks</button>
+        <button className='btn btn-outline-secondary btn-sm' onClick={this.resetChart}>Reset</button>
       </div>
     )
   }

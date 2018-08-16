@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import FusionCharts from 'fusioncharts/core';
 import Column2D from 'fusioncharts/viz/column2d';
-import Bar2D from 'fusioncharts/viz/bar2d';
-import Line from 'fusioncharts/viz/line';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
 
 import data from './data.json';
 
-ReactFC.fcRoot(FusionCharts, Column2D, Bar2D, Line, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',
-  width: '100%',
-  height: '80%',
+  width: '600',
+  height: '350',
   dataFormat: 'json',
   dataSource: data
 };
@@ -24,7 +22,7 @@ class Chart extends Component {
 
     this.state = {
       chart: {},
-      currentVal: 'column2d'
+      currentVal: 'medium'
     };
 
     this.renderComplete = this.renderComplete.bind(this);
@@ -35,8 +33,21 @@ class Chart extends Component {
     this.state.chart = chart;
   }
 
+  // Handler for radio buttons to change chart size.
   radioHandler(e) {
-    this.state.chart.chartType(e.currentTarget.value);
+    switch(e.currentTarget.value) {
+      case 'small':
+        this.state.chart.resizeTo(400, 250);
+        break;
+
+      case 'medium':
+        this.state.chart.resizeTo(600, 350);
+        break;
+
+      case 'large':
+        this.state.chart.resizeTo(700, 400);
+        break;
+    }
     this.setState({
       currentVal: e.currentTarget.value
     });
@@ -51,16 +62,16 @@ class Chart extends Component {
           <span>Chose a chart type:</span>
           <div className="change-type">
             <div>
-              <input type="radio" value="column2d" onChange={this.radioHandler} checked={this.state.currentVal === 'column2d'} />
-              <label>Column 2D Chart</label>
+              <input type="radio" value="small" onChange={this.radioHandler} checked={this.state.currentVal === 'small'} />
+              <label>400 x 250</label>
             </div>
             <div>
-              <input type="radio" value="bar2d" onChange={this.radioHandler} checked={this.state.currentVal === 'bar2d'} />
-              <label>Bar 2D Chart</label>
+              <input type="radio" value="medium" onChange={this.radioHandler} checked={this.state.currentVal === 'medium'} />
+              <label>600 x 350</label>
             </div>
             <div>
-              <input type="radio" value="line" onChange={this.radioHandler} checked={this.state.currentVal === 'line'} />
-              <label>Line 2D Chart</label>
+              <input type="radio" value="large" onChange={this.radioHandler} checked={this.state.currentVal === 'large'} />
+              <label>700 x 400</label>
             </div>
           </div>
         </center>

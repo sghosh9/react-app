@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d';
+import StackedColumn2D from 'fusioncharts/viz/stackedcolumn2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data1 from './data1.json';
 import data2 from './data2.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Column2D, StackedColumn2D, FusionTheme);
 
 const chart1Configs = {
   type: 'column2d',
@@ -43,7 +42,7 @@ class Chart extends Component {
       <div>
         <ReactFC {...chart1Configs} />
         <ReactFC {...chart2Configs} />
-        <center><button className="btn btn-custom" onClick={this.exportChart}>Export both charts as a single PDF</button></center>
+        <center><button className="btn btn-outline-secondary btn-sm" onClick={this.exportChart}>Export both charts as a single PDF</button></center>
       </div>
     )
   }

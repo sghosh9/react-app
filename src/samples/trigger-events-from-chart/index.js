@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionCharts from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d';
 import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+
 import data from './data.json';
-// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-import "../../assets/js/fusioncharts.theme.fusion";
-import "../../assets/css/fusioncharts.theme.fusion.css";
-
-ReactFC.fcRoot(FusionCharts, Charts);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',
@@ -24,22 +22,30 @@ class Chart extends Component {
 
     this.state = {
       actualValue: 'Hover on the plot to see the value along with the label',
+      message: 'Hover on the plot to see the value along with the label'
     };
 
-    this.showPlotValue = this.showPlotValue.bind(this);
+    this.dataplotrollover = this.dataplotrollover.bind(this);
+    this.dataplotrollout = this.dataplotrollout.bind(this);
   }
 
-  showPlotValue(eventObj, dataObj) {
+  dataplotrollover(eventObj, dataObj) {
     this.setState({
-      actualValue: `You’re are currently hovering over ${dataObj.categoryLabel} whose value is ${dataObj.displayValue}`,
+      message: ["You are currently hovering over ", <strong>{dataObj.categoryLabel}</strong>,  " whose value is ", <strong>{dataObj.displayValue}</strong>]
+    });
+  }
+
+  dataplotrollout(eventObj, dataObj) {
+    this.setState({
+      message: this.state.actualValue
     });
   }
 
   render() {
     return (
       <div>
-        <ReactFC {...chartConfigs} fcEvent-dataplotRollOver={this.showPlotValue} />
-        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.actualValue}</p>
+        <ReactFC {...chartConfigs} fcEvent-dataplotRollOver={this.dataplotrollover} fcEvent-dataplotRollOut={this.dataplotrollout} />
+        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.message}</p>
       </div>
     );
   }
