@@ -98,7 +98,7 @@ class Samples extends Component {
     }
     return (
       <BrowserRouter basename="react-fusioncharts-component">
-        <div className="demo bg-light-purple pt-4 pb-4">
+        <div className={"demo bg-light-purple pt-4 pb-4 chart-" + config.sampleProps[this.state.activePath].directory}>
           <div className="container container-1200 info-wrapper">
           <div className="row">
               <div className="col-12 d-flex justify-content-center d-md-none">

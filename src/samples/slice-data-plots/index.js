@@ -21,32 +21,62 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      chart: {}
+      chart: {},
+      currentVal: 'none'
     }
 
     this.renderComplete = this.renderComplete.bind(this);
-    this.sliceMicrosoft = this.sliceMicrosoft.bind(this);
-    this.resetChart = this.resetChart.bind(this);
+    this.radioHandler = this.radioHandler.bind(this);
   }
 
   renderComplete(chart) {
     this.state.chart = chart;
   }
 
-  sliceMicrosoft() {
-    this.state.chart.slicePlotItem(1, true);
-  }
-
-  resetChart() {
-    this.state.chart.slicePlotItem(1, false);
+  // Handler for radio buttons to slice data plot.
+  radioHandler(e) {
+    if (e.currentTarget.value === 'none') {
+      this.state.chart.options.dataSource.data.map((data, index) => {
+        this.state.chart.slicePlotItem(index, false);
+      });
+    } else {
+      this.state.chart.slicePlotItem(e.currentTarget.value, true);
+    }
+    this.setState({
+      currentVal: e.currentTarget.value
+    });
   }
 
   render () {
     return (
       <div>
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
-        <button className='btn btn-outline-secondary btn-sm' onClick={this.sliceMicrosoft}>Slice out Microsoft</button>
-        <button className='btn btn-outline-secondary btn-sm' onClick={this.resetChart}>Reset</button>
+        <br />
+        <center>
+          <span>Slice out:</span>
+          <div className="change-type">
+            <div>
+              <input type="radio" value="none" onChange={this.radioHandler} checked={this.state.currentVal === 'none'} />
+              <label>None</label>
+            </div>
+            <div>
+              <input type="radio" value="0" onChange={this.radioHandler} checked={this.state.currentVal === '0'} />
+              <label>Apache</label>
+            </div>
+            <div>
+              <input type="radio" value="1" onChange={this.radioHandler} checked={this.state.currentVal === '1'} />
+              <label>Microsoft</label>
+            </div>
+            <div>
+              <input type="radio" value="2" onChange={this.radioHandler} checked={this.state.currentVal === '2'} />
+              <label>Zeus</label>
+            </div>
+            <div>
+              <input type="radio" value="3" onChange={this.radioHandler} checked={this.state.currentVal === '3'} />
+              <label>Other</label>
+            </div>
+          </div>
+        </center>
       </div>
     )
   }

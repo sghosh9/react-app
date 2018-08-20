@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import FusionCharts from 'fusioncharts/core';
 import Column2D from 'fusioncharts/viz/column2d';
 import Bar2D from 'fusioncharts/viz/bar2d';
-import Line from 'fusioncharts/viz/line';
+import Pie2D from 'fusioncharts/viz/pie2d';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
 
 import data from './data.json';
 
-ReactFC.fcRoot(FusionCharts, Column2D, Bar2D, Line, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Column2D, Bar2D, Pie2D, FusionTheme);
 
 const chartConfigs = {
   type: 'column2d',
@@ -59,8 +59,8 @@ class Chart extends Component {
               <label>Bar 2D Chart</label>
             </div>
             <div>
-              <input type="radio" value="line" onChange={this.radioHandler} checked={this.state.currentVal === 'line'} />
-              <label>Line 2D Chart</label>
+              <input type="radio" value="pie2d" onChange={this.radioHandler} checked={this.state.currentVal === 'pie2d'} />
+              <label>Pie 2D Chart</label>
             </div>
           </div>
         </center>

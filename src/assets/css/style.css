@@ -126,6 +126,11 @@
   margin: 0;
 }
 
+/* Exclude */
+.chart-responsive-charts .chart-wrapper-inner {
+  text-align: left;
+}
+
 .code-view .card,
 .code-view {
   overflow: hidden;
