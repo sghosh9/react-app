@@ -21,7 +21,7 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message: 'You have dragged a plot of ______ dataset, its previous value was _______ and its current value is _______',
+      message: 'Drag any column for years 2017 or 2018 to see updated value along with the label',
     };
 
     this.dataplotDragEnd = this.dataplotDragEnd.bind(this);
@@ -31,7 +31,7 @@ class Chart extends Component {
     var prevValue = FusionCharts.formatNumber(dataObj.startValue.toFixed(2));
     var curValue = FusionCharts.formatNumber(dataObj.endValue.toFixed(2));
     this.setState({
-      message: ["You have dragged a plot of the ", <strong>{eventObj.data.datasetName}</strong>, " dataset, its previous value was ", <strong>{prevValue}</strong>, " and its current value is ", <strong>{curValue}</strong>]
+      message: [<strong>{eventObj.data.datasetName}</strong>, " is modified to ", <strong>{'$' + curValue + 'M'}</strong>, " from ", <strong>{'$' + prevValue + 'M'}</strong>]
     });
   }
 

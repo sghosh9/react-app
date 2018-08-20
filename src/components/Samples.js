@@ -21,7 +21,7 @@ import SimpleMap from '../samples/simple-map';
 import ApplyTheme from '../samples/apply-theme';
 import ChangeChartTypeRuntime from '../samples/change-chart-type-runtime';
 import UseAnnotations from '../samples/use-annotations';
-import RenderAlert from '../samples/render-alert';
+import LifecycleEvents from '../samples/lifecycle-events';
 import SpecialEvents from '../samples/special-events';
 import DynamicEventListening from '../samples/dynamic-event-listening';
 import SliceDataPlots from '../samples/slice-data-plots';
@@ -161,7 +161,7 @@ class Samples extends Component {
                       <Route path='/apply-theme' component={ApplyTheme} />
                       <Route path='/change-chart-type-runtime' component={ChangeChartTypeRuntime} />
                       <Route path='/use-annotations' component={UseAnnotations} />
-                      <Route path='/render-alert' component={RenderAlert} />
+                      <Route path='/lifecycle-events' component={LifecycleEvents} />
                       <Route path='/special-events' component={SpecialEvents} />
                       <Route path='/dynamic-event-listening' component={DynamicEventListening} />
                       <Route path='/slice-data-plots' component={SliceDataPlots} />

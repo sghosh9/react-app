@@ -23,7 +23,8 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message: ''
+      message: '',
+      enabled: false
     }
 
     this.trackPlotClick = this.trackPlotClick.bind(this);
@@ -34,7 +35,8 @@ class Chart extends Component {
   trackPlotClick() {
     FusionCharts.addEventListener('dataplotClick', this.dataPlotClick);
     this.setState({
-      message: defaultMessage
+      message: defaultMessage,
+      enabled: true
     });
   }
 
@@ -47,7 +49,8 @@ class Chart extends Component {
   resetChart() {
     FusionCharts.removeEventListener('dataplotClick', this.dataPlotClick);
     this.setState({
-      message: ''
+      message: '',
+      enabled: false
     });
   }
 
@@ -56,10 +59,10 @@ class Chart extends Component {
       <div>
         <ReactFC {...chartConfigs} />
         <div style={{ padding: '5px' }} id="message">
-          { this.state.message || ['Click on ', <b>TRACK DATA PLOT CLICK</b>, ' button to listen to dataplotclick event']}
+          { this.state.message || 'Click the below buttons to add an event dynamically to a charts' }
         </div>
-        <button className='btn btn-outline-secondary btn-sm' onClick={this.trackPlotClick}>Track Data Plot Clicks</button>
-        <button className='btn btn-outline-secondary btn-sm' onClick={this.resetChart}>Reset</button>
+        <button className='btn btn-outline-secondary btn-sm' disabled={this.state.enabled} onClick={this.trackPlotClick}>Add/ listen to data plot click event</button>
+        <button className='btn btn-outline-secondary btn-sm' disabled={!this.state.enabled} onClick={this.resetChart}>Remove data plot click event</button>
       </div>
     )
   }
