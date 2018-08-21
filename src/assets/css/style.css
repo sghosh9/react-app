@@ -121,6 +121,14 @@
   height: 100%;
   text-align: center;
   overflow: scroll;
+  min-height: 450px;
+  position: relative;
+}
+
+.chart-radios {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .chart-wrapper-inner p {
@@ -130,6 +138,11 @@
 /* Exclude */
 .chart-responsive-charts .chart-wrapper-inner {
   text-align: left;
+}
+@media (max-width: 768px) {
+  .chart-responsive-charts .chart-wrapper-inner {
+    min-height: 500px;
+  }
 }
 
 .code-view .card,

@@ -51,7 +51,7 @@ class Chart extends Component {
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
         <br />
         <center>
-          <span>Chose a chart type:</span>
+          <span>Chose a theme:</span>
           <div className="change-type">
             <div>
               <input type="radio" value="fusion" onChange={this.radioHandler} checked={this.state.currentVal === 'fusion'} />

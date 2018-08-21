@@ -58,8 +58,8 @@ class Chart extends Component {
       <div>
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
         <br />
-        <center>
-          <span>Chose a chart type:</span>
+        <center className="chart-radios">
+          <span>Choose a dimension:</span>
           <div className="change-type">
             <div>
               <input type="radio" value="small" onChange={this.radioHandler} checked={this.state.currentVal === 'small'} />
