@@ -27,6 +27,7 @@ class Chart extends Component {
 
     this.renderComplete = this.renderComplete.bind(this);
     this.radioHandler = this.radioHandler.bind(this);
+    this.sliceClicked = this.sliceClicked.bind(this);
   }
 
   renderComplete(chart) {
@@ -47,10 +48,18 @@ class Chart extends Component {
     });
   }
 
+  // Event callback for 'dataplotClick'.
+  // Makes the relevant radio active when a plot is clicked.
+  sliceClicked(eventObj, dataObj) {
+    this.setState({
+      currentVal: eventObj.data.isSliced ? 'none' : eventObj.data.dataIndex
+    });
+  }
+
   render () {
     return (
       <div>
-        <ReactFC {...chartConfigs} onRender={this.renderComplete} />
+        <ReactFC {...chartConfigs} onRender={this.renderComplete} fcEvent-dataplotClick={this.sliceClicked} />
         <br />
         <center>
           <span>Slice out:</span>
@@ -60,19 +69,19 @@ class Chart extends Component {
               <label>None</label>
             </div>
             <div>
-              <input type="radio" value="0" onChange={this.radioHandler} checked={this.state.currentVal === '0'} />
+              <input type="radio" value="0" onChange={this.radioHandler} checked={parseInt(this.state.currentVal) === 0} />
               <label>Apache</label>
             </div>
             <div>
-              <input type="radio" value="1" onChange={this.radioHandler} checked={this.state.currentVal === '1'} />
+              <input type="radio" value="1" onChange={this.radioHandler} checked={parseInt(this.state.currentVal) === 1} />
               <label>Microsoft</label>
             </div>
             <div>
-              <input type="radio" value="2" onChange={this.radioHandler} checked={this.state.currentVal === '2'} />
+              <input type="radio" value="2" onChange={this.radioHandler} checked={parseInt(this.state.currentVal) === 2} />
               <label>Zeus</label>
             </div>
             <div>
-              <input type="radio" value="3" onChange={this.radioHandler} checked={this.state.currentVal === '3'} />
+              <input type="radio" value="3" onChange={this.radioHandler} checked={parseInt(this.state.currentVal) === 3} />
               <label>Other</label>
             </div>
           </div>
