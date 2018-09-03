@@ -337,7 +337,7 @@ class Banner extends React.Component {
             </div>
           </div>
         </div>
-        <div className="h6 mt-2">Consider the example below that conerts a Column 2D chart to a Pie 2D chart after 5 seconds.</div>
+        <div className="h6 mt-2">Consider the example below that converts a Column 2D chart to a Pie 2D chart after 5 seconds.</div>
         <div className="row">
           <div className="col-12">
             <div className="code-view mt-2">

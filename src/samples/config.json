@@ -211,7 +211,7 @@
     },
     "15": {
       "title": "Special events",
-      "desc": "Drag a column column to see the change",
+      "desc": "Drag a column to see the change",
       "logo": "logo.svg",
       "logoHover": "logo-hover.svg",
       "interactiveViewURL": {

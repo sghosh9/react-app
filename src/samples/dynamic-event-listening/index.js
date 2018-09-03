@@ -59,7 +59,7 @@ class Chart extends Component {
       <div>
         <ReactFC {...chartConfigs} />
         <div style={{ padding: '5px' }} id="message">
-          { this.state.message || 'Click the below buttons to add an event dynamically to a charts' }
+          { this.state.message || 'Click the below buttons to add an event dynamically to a chart' }
         </div>
         <button className='btn btn-outline-secondary btn-sm' disabled={this.state.enabled} onClick={this.trackPlotClick}>Add/ listen to data plot click event</button>
         <button className='btn btn-outline-secondary btn-sm' disabled={!this.state.enabled} onClick={this.resetChart}>Remove data plot click event</button>
