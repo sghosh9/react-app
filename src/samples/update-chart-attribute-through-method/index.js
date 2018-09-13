@@ -36,15 +36,15 @@ class Chart extends Component {
   }
 
   changeCaption() {
-    this.state.chart.setChartAttribute("caption", "Test Caption");
+    this.state.chart.setChartAttribute("caption", "CAPTION");
   }
 
   changeXAxis() {
-    this.state.chart.setChartAttribute("xAxisName", "Test X-Axis");
+    this.state.chart.setChartAttribute("xAxisName", "X-AXIS NAME");
   }
 
   changeYAxis() {
-    this.state.chart.setChartAttribute("yAxisName", "Test Y-Axis");
+    this.state.chart.setChartAttribute("yAxisName", "Y-AXIS NAME");
   }
 
   resetChart() {
@@ -62,19 +62,19 @@ class Chart extends Component {
             className="btn btn-outline-secondary btn-sm"
             onClick={this.changeCaption}
           >
-            Change Caption: Test Caption
+            Change Caption To: Caption
           </button>
           <button
             className="btn btn-outline-secondary btn-sm"
             onClick={this.changeXAxis}
           >
-            Change X-Axis Name: Test X-Axis
+            Change X_Axis Name To: X-Axis Name
           </button>
           <button
             className="btn btn-outline-secondary btn-sm"
             onClick={this.changeYAxis}
           >
-            Change Y-Axis Name: Test Y-Axis
+            Change Y_Axis Name To: Y-Axis Name
           </button>
           <button
             className="btn btn-outline-secondary btn-sm"

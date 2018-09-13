@@ -21,8 +21,7 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message:
-        "You will see notifications here for the chart lifecycle events"
+      message: "You will see notifications here for the chart lifecycle events"
     };
 
     this.beforeDataUpdate = this.beforeDataUpdate.bind(this);
@@ -32,9 +31,7 @@ class Chart extends Component {
   }
 
   beforeDataUpdate() {
-    this.setState({ message: "Status: beforeDataUpdate" }, () => {
-      console.log(this.state);
-    });
+    this.setState({ message: "Status: beforeDataUpdate" });
     this.state.message = "Status: beforeDataUpdate";
   }
 
@@ -61,7 +58,7 @@ class Chart extends Component {
       <div>
         <ReactFC
           {...chartConfigs}
-          fcEvent-beforeDataUpdate={() => this.beforeDataUpdate()}
+          fcEvent-beforeDataUpdate={this.beforeDataUpdate}
           fcEvent-dataUpdated={this.dataUpdated}
           fcEvent-drawComplete={this.drawComplete}
           fcEvent-renderComplete={this.renderComplete}
