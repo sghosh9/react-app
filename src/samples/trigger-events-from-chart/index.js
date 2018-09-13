@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Column2D from 'fusioncharts/viz/column2d';
-import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion';
+import React, { Component } from "react";
+import FusionCharts from "fusioncharts/core";
+import Column2D from "fusioncharts/viz/column2d";
+import ReactFC from "react-fusioncharts";
+import FusionTheme from "fusioncharts/themes/es/fusioncharts.theme.fusion";
 
-import data from './data.json';
+import data from "./data.json";
 
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const chartConfigs = {
-  type: 'column2d',
-  width: '100%',
-  height: '80%',
-  dataFormat: 'json',
+  type: "column2d",
+  width: "100%",
+  height: "80%",
+  dataFormat: "json",
   dataSource: data
 };
 
@@ -21,8 +21,8 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      actualValue: 'Hover on the plot to see the value along with the label',
-      message: 'Hover on the plot to see the value along with the label'
+      actualValue: "Hover on the plot to see the value along with the label",
+      message: "Hover on the plot to see the value along with the label"
     };
 
     this.dataplotrollover = this.dataplotrollover.bind(this);
@@ -31,7 +31,12 @@ class Chart extends Component {
 
   dataplotrollover(eventObj, dataObj) {
     this.setState({
-      message: ["You are currently hovering over ", <strong>{dataObj.categoryLabel}</strong>,  " whose value is ", <strong>{dataObj.displayValue}</strong>]
+      message: [
+        "You are currently hovering over ",
+        <strong>{dataObj.categoryLabel}</strong>,
+        " whose value is ",
+        <strong>{dataObj.displayValue}</strong>
+      ]
     });
   }
 
@@ -44,8 +49,14 @@ class Chart extends Component {
   render() {
     return (
       <div>
-        <ReactFC {...chartConfigs} fcEvent-dataplotRollOver={this.dataplotrollover} fcEvent-dataplotRollOut={this.dataplotrollout} />
-        <p style={{ padding: '10px', background: '#f5f2f0' }}>{this.state.message}</p>
+        <ReactFC
+          {...chartConfigs}
+          fcEvent-dataplotRollOver={this.dataplotrollover}
+          fcEvent-dataplotRollOut={this.dataplotrollout}
+        />
+        <p style={{ padding: "10px", background: "#f5f2f0" }}>
+          {this.state.message}
+        </p>
       </div>
     );
   }

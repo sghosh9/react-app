@@ -34,7 +34,8 @@ class Chart extends Component {
   }
 
   renderComplete(chart) {
-    this.state.chart = chart;
+    // this.state.chart = chart;
+    this.setState({chart});
   }
 
   // Handler for radio buttons to change chart theme.

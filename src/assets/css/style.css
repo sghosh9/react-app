@@ -348,7 +348,7 @@ body {
 /* Demo */
 .btn {
   font-family: 'Source Sans Pro';
-  margin: 0 5px;
+  margin: 5px;
 }
 .btn.btn-custom { background: #4a4d8c;  transition: all 300ms; color: white; margin: 0 2px; }
 .btn.btn-custom:hover{ background: #5c62b5; }
