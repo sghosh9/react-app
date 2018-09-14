@@ -48,7 +48,7 @@ class Chart extends Component {
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
         <br />
         <center>
-          <span>Chose a chart type:</span>
+          <span>Choose a chart type:</span>
           <div className="change-type">
             <div>
               <input

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import FusionCharts from "fusioncharts/core";
-import AngularGauge from "fusioncharts/viz/angulargauge";
+import Widgets from "fusioncharts/viz/angulargauge";
 import ReactFC from "react-fusioncharts";
 import FusionTheme from "fusioncharts/themes/es/fusioncharts.theme.fusion";
 
 import data from "./data.json";
 
-ReactFC.fcRoot(FusionCharts, AngularGauge, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Widgets, FusionTheme);
 
 const chartConfigs = {
   type: "angulargauge",

@@ -21,7 +21,9 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      message: "You will see notifications here for the chart lifecycle events"
+      message: [
+        "You will see notifications here for the chart lifecycle events"
+      ]
     };
 
     this.beforeDataUpdate = this.beforeDataUpdate.bind(this);
@@ -31,25 +33,30 @@ class Chart extends Component {
   }
 
   beforeDataUpdate() {
-    this.setState({ message: "Status: beforeDataUpdate" });
-    this.state.message = "Status: beforeDataUpdate";
+    this.state.message = [<strong>Status: </strong>, " beforeDataUpdate"];
   }
 
   dataUpdated() {
+    let newMessage = this.state.message.slice();
+    newMessage.push(", dataUpdated");
     this.setState({
-      message: this.state.message + ", dataUpdated"
+      message: newMessage
     });
   }
 
   drawComplete() {
+    let newMessage = this.state.message.slice();
+    newMessage.push(", drawComplete");
     this.setState({
-      message: this.state.message + ", drawComplete"
+      message: newMessage
     });
   }
 
   renderComplete() {
+    let newMessage = this.state.message.slice();
+    newMessage.push(", renderComplete");
     this.setState({
-      message: this.state.message + ", renderComplete"
+      message: newMessage
     });
   }
 

@@ -34,8 +34,7 @@ class Chart extends Component {
   }
 
   renderComplete(chart) {
-    // this.state.chart = chart;
-    this.setState({chart});
+    this.setState({ chart });
   }
 
   // Handler for radio buttons to change chart theme.
@@ -52,7 +51,7 @@ class Chart extends Component {
         <ReactFC {...chartConfigs} onRender={this.renderComplete} />
         <br />
         <center>
-          <span>Chose a theme:</span>
+          <span>Choose a theme:</span>
           <div className="change-type">
             <div>
               <input type="radio" value="fusion" onChange={this.radioHandler} checked={this.state.currentVal === 'fusion'} />
