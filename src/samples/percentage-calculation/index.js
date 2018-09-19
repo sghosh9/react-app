@@ -21,8 +21,7 @@ class Chart extends Component {
     super(props);
 
     this.state = {
-      actualValue:
-        "Hover on the plot to see the percentage along with the label",
+      actualValue: "Hover on the plot to see the percentage along with the label",
       message: "Hover on the plot to see the value along with the label"
     };
 
@@ -38,7 +37,7 @@ class Chart extends Component {
         <strong>{dataObj.categoryLabel}</strong>,
         " is ",
         <strong>{value}</strong>,
-        "% of the total"
+        "% of top 8 oil reserve countries"
       ]
     });
   }
